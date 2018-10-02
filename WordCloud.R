@@ -7,12 +7,19 @@ head(demoFreq)
 str(demoFreq)
 word_text=sample(c('Sahithi', 'barath', 'sarita','Surya','Vamsy','ritesh','rohith','CK','SVS'),1000,T, prob=(c(.15,.1,.1,.1,.15,.1,.1,.1,.1)))
 
-word_freq=sample(c(1:2), 1000,T)
+sname = paste('s', 1:1000)
+sname
+sname=factor(sname)
+sname_final=data.frame(sname,word_freq)
+str(sname_final)
+wordcloud2(sname_final, size=0.7, shape ='star')
+
+word_freq=sample(c(1:100), 1000,T)
 word_text=factor(word_text)
 word_final=data.frame(word_text,word_freq)
 
-wordcloud2(demoFreq, size=1)
-wordcloud2(word_final, size=0.6, shape ='star')
+wordcloud2(demoFreq, size=1, shape ='star')
+wordcloud2(word_final, size=.3, shape ='circle')
 ?wordcloud2
 head(word_final)
 str(word_final)
@@ -32,6 +39,7 @@ filePath <- "http://www.sthda.com/sthda/RDoc/example-files/martin-luther-king-i-
 text <- readLines(filePath)
 docs <- Corpus(VectorSource(text))
 inspect(docs)
+
 toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
 docs <- tm_map(docs, toSpace, "/")
 docs <- tm_map(docs, toSpace, "@")
@@ -65,4 +73,8 @@ set.seed(1234)
 wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           max.words=200, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
-
+str(d)
+wordcloud2(sname_final, size=0.7, shape ='circle')
+wordcloud2(d, size=0.7,shape = 'circle', backgroundColor = 'cyan')
+           
+           #figPath = "likee.jpg")
