@@ -75,6 +75,8 @@ wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           colors=brewer.pal(8, "Dark2"))
 str(d)
 wordcloud2(sname_final, size=0.7, shape ='circle')
-wordcloud2(d, size=0.7,shape = 'circle', backgroundColor = 'cyan')
+wordcloud2(d, size=0.7,shape = 'circle')
+           
+           #, backgroundColor = 'cyan')
            
            #figPath = "likee.jpg")
